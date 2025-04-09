@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "999694541513",
+    "project_id": "pingtolk",
+    "storage_bucket": "pingtolk.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999694541513:android:c61f3532f559a619642318",
+        "android_client_info": {
+          "package_name": "com.example.pingtolk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXNQ0vDysf04RhJrkCu83eektWxy7oZt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,7 +4,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="?android:attr/selectableItemBackground"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card"
+    android:elevation="2dp"
     android:clickable="true"
     android:focusable="true">
 
@@ -12,8 +14,8 @@
         android:id="@+id/textRoomCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_room_code"
-        android:textSize="18sp"
+        android:text="FAMILY123"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000" />
 
@@ -21,8 +23,8 @@
         android:id="@+id/textCreatedBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_created_by"
-        android:textSize="14sp"
+        android:text="만든 사람: 아빠"
+        android:textSize="13sp"
         android:textColor="#666666"
         android:layout_marginTop="4dp" />
 </LinearLayout>

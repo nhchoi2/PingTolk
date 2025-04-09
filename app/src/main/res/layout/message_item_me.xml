@@ -30,6 +30,4 @@
         android:text=""
         android:textSize="10sp"
         android:textColor="#AAAAAA" />
-
-
 </LinearLayout>

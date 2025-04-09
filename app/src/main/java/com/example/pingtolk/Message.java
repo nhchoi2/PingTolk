@@ -6,11 +6,11 @@ public class Message {
     private long timestamp;
     private boolean isDateSeparator;
 
-    // ✅ 기본 생성자 (Firestore에서 필요)
+    // 기본 생성자 (Firestore에서 필요)
     public Message() {
     }
 
-    // ✅ 일반 메시지 생성자
+    // 일반 메시지 생성자
     public Message(String sender, String text, long timestamp) {
         this.sender = sender;
         this.text = text;
@@ -18,7 +18,7 @@ public class Message {
         this.isDateSeparator = false;
     }
 
-    // ✅ 날짜 구분용 메시지 생성자
+    // 날짜 구분용 메시지 생성자
     public static Message createDateSeparator(long timestamp) {
         Message msg = new Message();
         msg.sender = "";
@@ -28,7 +28,7 @@ public class Message {
         return msg;
     }
 
-    // ✅ Getter & Setter
+    // Getter & Setter
     public String getSender() {
         return sender;
     }

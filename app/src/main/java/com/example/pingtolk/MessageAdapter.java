@@ -42,7 +42,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         } else if (viewType == 1) {
             view = LayoutInflater.from(context).inflate(R.layout.message_item_other, parent, false);
         } else {
-            view = LayoutInflater.from(context).inflate(R.layout.message_item_date, parent, false); // ✅ 날짜용 레이아웃
+            view = LayoutInflater.from(context).inflate(R.layout.message_item_date, parent, false);
         }
         return new MessageViewHolder(view);
     }
@@ -52,7 +52,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         Message msg = messageList.get(position);
 
         if (msg.isDateSeparator()) {
-            holder.textDate.setText(getDate(msg.getTimestamp())); // 날짜 표시용
+            holder.textDate.setText(getDate(msg.getTimestamp()));
             return;
         }
 
@@ -70,6 +70,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         SimpleDateFormat sdf = new SimpleDateFormat("a hh:mm", Locale.KOREA);
         return sdf.format(new Date(timestamp));
     }
+
     private String getDate(long timestamp) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA);
         return sdf.format(new Date(timestamp));
@@ -81,7 +82,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            // 안전하게 분기
             if (itemView.findViewById(R.id.textDate) != null) {
                 textDate = itemView.findViewById(R.id.textDate);
             }

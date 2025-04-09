@@ -17,7 +17,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class MainActivity extends AppCompatActivity {
 
     EditText editNickname, editFamilyCode, editPassword;
@@ -31,29 +30,29 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         String token = task.getResult();
-                        Log.d("FCM", "내 토큰: " + token); // 🔹 Logcat에서 확인 가능
+                        Log.d("FCM", "내 토큰: " + token);
                     }
                 });
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // ✅ 화면 연결
+        setContentView(R.layout.activity_main);
 
-        // ✅ 위젯 연결
+        // 위젯 연결
         editNickname = findViewById(R.id.editNickname);
         editFamilyCode = findViewById(R.id.editFamilyCode);
         editPassword = findViewById(R.id.editPassword);
         btnCreate = findViewById(R.id.btnCreate);
         btnJoin = findViewById(R.id.btnJoin);
 
-        // ✅ SharedPreferences 설정 및 값 채워넣기
+        // SharedPreferences 설정 및 채워넣기
         prefs = getSharedPreferences("PingTalkPrefs", MODE_PRIVATE);
         editNickname.setText(prefs.getString("nickname", ""));
         editFamilyCode.setText(prefs.getString("familyCode", ""));
         editPassword.setText(prefs.getString("password", ""));
 
-        db = FirebaseFirestore.getInstance(); // ✅ Firebase 초기화
+        db = FirebaseFirestore.getInstance();
 
-        // ✅ 저장된 정보가 모두 있을 경우 자동 입장
+        // 저장된 정보가 모두 있을 경우 자동 입장
         String savedNick = prefs.getString("nickname", "");
         String savedCode = prefs.getString("familyCode", "");
         String savedPw = prefs.getString("password", "");
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        // ✅ 방 만들기
+        // 방 만들기
         btnCreate.setOnClickListener(v -> {
             String nickname = editNickname.getText().toString().trim();
             String familyCode = editFamilyCode.getText().toString().trim();
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                     db.collection("rooms").document(familyCode).set(roomData)
                             .addOnSuccessListener(unused -> {
-                                // ✅ 저장
+                                // 저장
                                 prefs.edit()
                                         .putString("nickname", nickname)
                                         .putString("familyCode", familyCode)
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             });
         });
 
-        // ✅ 방 입장
+        // 방 입장
         btnJoin.setOnClickListener(v -> {
             String nickname = editNickname.getText().toString().trim();
             String familyCode = editFamilyCode.getText().toString().trim();
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // ✅ 채팅 화면 이동
+    // 채팅 화면 이동 메서드
     private void openChat(String familyCode, String nickname) {
         Intent intent = new Intent(MainActivity.this, ChatActivity.class);
         intent.putExtra("familyCode", familyCode);
